@@ -8,7 +8,7 @@ const FormComponent = () => {
   ]
   return (
     <div className="w-full max-w-xl">
-      <form className="mb-4 grid grid-cols-12 w-[600px] gap-1 rounded bg-white px-8 pb-8 pt-6 shadow-md sm:gap-4">
+      <form className="mb-4 grid grid-cols-12 gap-1 rounded bg-white px-8 pb-8 pt-6 shadow-md sm:gap-4">
         <div className="col-span-12">
           <p className="mt-2 text-sm text-neutral-600">
             Fill the form to get your{' '}
