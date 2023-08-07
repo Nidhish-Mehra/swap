@@ -2,19 +2,14 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import FormComponent from '@/components/Form'
-import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 import { MDXComponents } from '@/components/MDXComponents'
-import { PageIntro } from '@/components/PageIntro'
-import { PageLinks } from '@/components/PageLinks'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import Image from 'next/image'
-import BMW from '@/images/clients/logos/13.png'
 
 export default async function BrandLayout({ children, _segments }) {
   let id = _segments.at(-2)
   let allBrands = await loadMDXMetadata('used-engines')
   let brand = allBrands.find((brand) => brand.id === id)
-  let moreBrands = allBrands.filter((brand) => brand.id !== id).slice(0, 2)
 
   return (
     <>
