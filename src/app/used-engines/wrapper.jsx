@@ -19,9 +19,9 @@ export default async function BrandLayout({ children, _segments }) {
             <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
               <div>
                 <h1 className="hidden font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
-                  {brand.title}
+                  {brand?.title}
                 </h1>
-                <p className="text-neutral-200">{brand.description}</p>
+                <p className="text-neutral-200">{brand?.description}</p>
               </div>
               <FormComponent />
             </FadeIn>
@@ -32,19 +32,19 @@ export default async function BrandLayout({ children, _segments }) {
                 <div className="mx-auto max-w-5xl">
                   <dl className="-mx-6 grid grid-cols-1 text-sm text-orange-400 sm:mx-0 sm:grid-cols-4">
                     <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0">
-                      <Image src={brand.imageLogo} alt="BMW" unoptimized />
+                      <Image src={brand?.imageLogo} alt="BMW" unoptimized />
                     </div>
                     <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0">
                       <dt className="font-semibold">Brand</dt>
-                      <dd>{brand.client}</dd>
+                      <dd>{brand?.client}</dd>
                     </div>
                     <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0">
                       <dt className="font-semibold">Product</dt>
-                      <dd>{brand.product}</dd>
+                      <dd>{brand?.product}</dd>
                     </div>
                     <div className="border-t border-neutral-200 px-6 py-4 first:border-t-0 sm:border-l sm:border-t-0">
                       <dt className="font-semibold">Service</dt>
-                      <dd>{brand.service}</dd>
+                      <dd>{brand?.service}</dd>
                     </div>
                   </dl>
                 </div>
