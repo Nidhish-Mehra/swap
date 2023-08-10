@@ -310,7 +310,7 @@ export default async function Home() {
       <Container formContainer={true} className="mt-12 sm:mt-40">
         <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
           <FormComponent />
-          <div className="pl-16">
+          <div className="hidden pl-16 sm:block">
             <h1 className="hidden font-display text-2xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-3xl md:block">
               Find A grade used engines with 3-5 Years warranty.
             </h1>

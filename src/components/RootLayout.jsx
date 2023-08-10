@@ -224,7 +224,7 @@ function Navigation() {
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/warranty">FAQs</NavigationItem>
+        <NavigationItem href="/faqs">FAQs</NavigationItem>
         <NavigationItem href="/warranty">Warranty</NavigationItem>
         <NavigationItem href="/policy">Policy</NavigationItem>
       </NavigationRow>
