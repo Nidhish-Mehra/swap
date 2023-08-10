@@ -87,7 +87,9 @@ const CarPartCard = ({
           <input
             className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
             id="model"
-            type="text"
+            type="number"
+            maxLength="10"
+            max="10"
             placeholder="Phone Number"
           />
         </div>
