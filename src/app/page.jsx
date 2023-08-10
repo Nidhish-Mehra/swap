@@ -299,7 +299,14 @@ function Services() {
 
 export const metadata = {
   description:
-    'We are developer studio working at the intersection of design and technology.',
+    `Swap Motors. was established in 2010 with the objective to provide
+    customers with high- quality and low mileage used engines. Keeping the
+    fact in mind that new vehicle or engine can cost a fortune, we offer
+    largest collection of car engines for sale which is as reliable as the
+    new one & will deliver excellent performance at a low price. We are
+    very particular about the quality of used engines and try & test every
+    piece before selling. Hence, you can be assured of purchasing a
+    reliable used engine for your vehicle.`,
 }
 
 export default async function Home() {
