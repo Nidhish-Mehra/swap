@@ -1,3 +1,22 @@
 @import './base.css';
 @import './components.css';
 @import './utilities.css';
+
+@keyframes phone-ring {
+  0%,
+  20%,
+  40%,
+  60%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30%,
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+.animate-phone-ring {
+  animation: phone-ring 2s infinite;
+}

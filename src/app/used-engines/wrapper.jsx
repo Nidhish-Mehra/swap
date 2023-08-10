@@ -15,15 +15,15 @@ export default async function BrandLayout({ children, _segments }) {
     <>
       <article className="mt-24 sm:mt-32 lg:mt-40">
         <header>
-          <Container className="mt-12 sm:mt-40">
+          <Container formContainer={true} className="mt-12 sm:mt-40">
             <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
-              <div>
+              <FormComponent />
+              <div className="pl-16">
                 <h1 className="hidden font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
                   {brand?.title}
                 </h1>
                 <p className="text-neutral-200">{brand?.description}</p>
               </div>
-              <FormComponent />
             </FadeIn>
           </Container>
           <FadeIn>

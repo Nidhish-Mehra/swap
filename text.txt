@@ -1,0 +1,1 @@
+Array.from(document.querySelector(".MuiList-root.MuiMenu-list.MuiList-padding").querySelectorAll("li")).map(li => li.textContent.trim())

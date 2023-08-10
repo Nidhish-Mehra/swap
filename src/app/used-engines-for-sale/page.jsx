@@ -65,7 +65,7 @@ function CaseStudies({ caseStudies }) {
                   </div>
                   <div className="mt-8 flex">
                     <Button
-                      href={caseStudy.href}
+                      href={'/policy'}
                       aria-label={'Read about our policies'}
                     >
                       Read about our policies
@@ -140,12 +140,12 @@ export default async function Work() {
 
   return (
     <>
-      <Container className="mt-12 sm:mt-40">
+      <Container formContainer={true} className="mt-12 sm:mt-40">
         <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
-          <h1 className="hidden font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
+          <FormComponent />
+          <h1 className="hidden pl-16 font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
             Best USED ENGINES 3-5 Years Nationwide Warranty
           </h1>
-          <FormComponent />
         </FadeIn>
       </Container>
       <CaseStudies caseStudies={caseStudies} />

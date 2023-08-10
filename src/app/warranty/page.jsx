@@ -48,10 +48,7 @@ function Section({ title, image, children }) {
 
 function Discover() {
   return (
-    <Section
-      title="Customer Satisfaction Is Our Goal"
-      image={{ src: wheels }}
-    >
+    <Section title="Customer Satisfaction Is Our Goal" image={{ src: wheels }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
           At Swap Motors., used engine warranty is restricted to only
@@ -317,12 +314,12 @@ export const metadata = {
 export default function Warranty() {
   return (
     <>
-      <Container className="mt-12 sm:mt-40">
+      <Container formContainer={true} className="mt-12 sm:mt-40">
         <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
-          <h1 className="hidden font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
+          <FormComponent />
+          <h1 className="hidden pl-16 font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
             Swap Motors Warranty
           </h1>
-          <FormComponent />
         </FadeIn>
       </Container>
       <Container className="mt-36 pt-0 sm:pt-32">

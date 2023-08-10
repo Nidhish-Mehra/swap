@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 
@@ -32,6 +32,7 @@ import Audi from '@/images/clients/logos/12.png'
 import logo from '@/images/clients/logos/logos.svg'
 import banner from '@/images/landing-banner.jpg'
 import { CallToAction } from './CallToAction'
+import { ClockIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 const RootLayoutContext = createContext({})
 
@@ -61,7 +62,7 @@ function Header({
   toggleRef,
 }) {
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)
-
+  const pathName = usePathname()
   return (
     <Container>
       <div className="flex items-center justify-between">
@@ -71,13 +72,29 @@ function Header({
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
         >
-          <Image className="h-24 w-auto" src={logo} alt="logo" unoptimized />
+          <Image className="h-20 w-auto" src={logo} alt="logo" unoptimized />
         </Link>
+        <div className="hidden items-center sm:flex">
+          <ClockIcon className="h-8 text-orange-400" />
+          <div className="ml-2 text-sm font-semibold text-orange-400">
+            <p>
+              Monday - Friday 9:00am-8:00pm EST
+              <br />
+              Saturday 11:00am-4:00pm EST
+            </p>
+          </div>
+        </div>
         <div className="flex items-center gap-x-4">
           <CallToAction className="hidden md:block" invert={invert}>
             info@swapengines.com
           </CallToAction>
-          <CallToAction invert={invert}>+1-866-241-7434</CallToAction>
+          <a
+            href="tel:+18662417434"
+            className="inline-flex w-fit rounded-full bg-orange-400 px-4 py-1.5 text-sm font-semibold text-white transition duration-300 hover:bg-orange-600"
+          >
+            <PhoneIcon className="animate-phone-ring h-6" />
+            <span className="ml-2">+1-866-241-7434</span>
+          </a>
           <button
             ref={toggleRef}
             type="button"
@@ -85,7 +102,7 @@ function Header({
             aria-expanded={expanded.toString()}
             aria-controls={panelId}
             className={clsx(
-              'group -m-2.5 rounded-full p-2.5 transition',
+              'group -m-2.5 block rounded-full p-2.5 transition sm:hidden',
               invert ? 'hover:bg-white/10' : 'hover:bg-orange-400/10'
             )}
             aria-label="Toggle navigation"
@@ -101,6 +118,55 @@ function Header({
           </button>
         </div>
       </div>
+      <nav className="hidden items-center justify-between border-t border-t-orange-400 text-orange-400 sm:flex ">
+        <Link
+          href="/used-engines-for-sale"
+          className={
+            'relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white'
+          }
+        >
+          Used Engines
+          {pathName === '/used-engines-for-sale' && (
+            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
+          )}
+        </Link>
+        <Link
+          href="/about"
+          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+        >
+          About Us
+          {pathName === '/about' && (
+            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
+          )}
+        </Link>
+        <Link
+          href="/faqs"
+          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+        >
+          FAQs
+          {pathName === '/faqs' && (
+            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
+          )}
+        </Link>
+        <Link
+          href="/warranty"
+          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+        >
+          Warranty
+          {pathName === '/warranty' && (
+            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
+          )}
+        </Link>
+        <Link
+          href="/policy"
+          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+        >
+          Policy
+          {pathName === '/policy' && (
+            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
+          )}
+        </Link>
+      </nav>
     </Container>
   )
 }
@@ -119,7 +185,7 @@ function NavigationItem({ href, children }) {
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 border-y-[0.5px] border-neutral-100 bg-orange-400 px-6 py-4 sm:mx-0 sm:border-neutral-100 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:border-l sm:even:pl-16 md:border-y-0"
+      className="group relative isolate -mx-6 border-y-[0.5px] border-neutral-100 bg-orange-400 px-6 py-2 sm:mx-0 sm:border-neutral-100 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:border-l sm:even:pl-16 md:border-y-0"
     >
       {children}
       <span className="absolute inset-y-0 -z-10 w-screen bg-orange-500 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
@@ -158,6 +224,7 @@ function Navigation() {
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
       <NavigationRow>
+        <NavigationItem href="/warranty">FAQs</NavigationItem>
         <NavigationItem href="/warranty">Warranty</NavigationItem>
         <NavigationItem href="/policy">Policy</NavigationItem>
       </NavigationRow>
@@ -224,7 +291,7 @@ function RootLayoutInner({ children }) {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header className="sticky top-0 z-50 rounded-t-md">
         <div
-          className="absolute left-0 right-0 z-40 bg-white pt-4"
+          className="absolute left-0 right-0 z-40 bg-white shadow-md pt-4"
           aria-hidden={expanded ? 'true' : undefined}
           inert={expanded ? '' : undefined}
         >

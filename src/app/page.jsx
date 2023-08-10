@@ -13,6 +13,12 @@ import imageLaptop from '@/images/laptop.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import FormComponent from '@/components/Form'
 
+import Return from '@/images/warranty/return.svg'
+import Certified from '@/images/warranty/certified.svg'
+import WarrantyImage from '@/images/warranty/warranty.svg'
+import Headphones from '@/images/warranty/headphone.svg'
+import Shipped from '@/images/warranty/shipped.svg'
+
 import porche from '@/images/clients/logos/1.png'
 import Nissan from '@/images/clients/logos/2.png'
 import Mitsubishi from '@/images/clients/logos/3.png'
@@ -43,6 +49,7 @@ import Saturn from '@/images/clients/logos/27.png'
 import Volkswagen from '@/images/clients/logos/29.png'
 import ChooseUs from '@/images/choose-us.png'
 import BannerChoose from '@/images/banner-choose.png'
+import { PhoneIcon } from '@heroicons/react/24/outline'
 
 const clients = [
   ['Porche', porche],
@@ -77,7 +84,7 @@ const clients = [
 
 function Clients() {
   return (
-    <div className="rounded-4xl bg-orange-400 py-20 sm:py-32 mt-20">
+    <div className="mt-20 rounded-4xl bg-orange-400 py-20 sm:py-32">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
@@ -300,12 +307,76 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="mt-12 sm:mt-40">
+      <Container formContainer={true} className="mt-12 sm:mt-40">
         <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
-          <h1 className="hidden font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
-            Find A grade used engines with 3-5 Years warranty.
-          </h1>
           <FormComponent />
+          <div className="pl-16">
+            <h1 className="hidden font-display text-2xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-3xl md:block">
+              Find A grade used engines with 3-5 Years warranty.
+            </h1>
+            <div className="flex items-center py-3">
+              <Image
+                src={Shipped}
+                alt="Shipping"
+                className="mr-2 h-8"
+                unoptimized
+              />
+              <div>
+                <p className="font-display font-medium text-orange-400 ">
+                  Flat Rate Shipping (Commercial address)
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center py-3">
+              <Image
+                src={WarrantyImage}
+                alt="Shipping"
+                className="mr-2 h-8"
+                unoptimized
+              />
+              <div>
+                <p className="font-display font-medium text-orange-400 ">
+                  Up to 5 Years Unlimited Mile Warranty
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center py-3">
+              <Image
+                src={Headphones}
+                alt="Shipping"
+                className="mr-2 h-8"
+                unoptimized
+              />
+              <div>
+                <p className="font-display font-medium text-orange-400 ">
+                  Excellent Customer Support
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center py-3">
+              <Image
+                src={Return}
+                alt="Shipping"
+                className="mr-2 h-8"
+                unoptimized
+              />
+              <div>
+                <p className="font-display font-medium text-orange-400 ">
+                  No core charge for 30 days <br /> (For Transmission)
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 text-2xl">
+              <span className="text-white">Speak with our specialist.</span>
+              <a
+                href="tel:+18662417434"
+                className="flex w-fit items-center rounded-lg bg-orange-500 px-4 py-2 text-white transition duration-300 hover:bg-orange-600"
+              >
+                <PhoneIcon className="animate-phone-ring h-6" />
+                <span className="ml-2">+1-866-241-7434</span>
+              </a>
+            </div>
+          </div>
         </FadeIn>
       </Container>
 
