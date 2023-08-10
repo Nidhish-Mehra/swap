@@ -118,12 +118,6 @@ const CarPartCard = ({
   )
 }
 
-export const metadata = {
-  title: 'Search',
-  description:
-    'We believe that our strength lies in our collaborative approach, which puts our clients at the center of everything we do.',
-}
-
 export default function Search() {
   const searchParams = useSearchParams()
   const part = searchParams.get('part')
