@@ -187,9 +187,9 @@ const FormComponent = () => {
         </div>
         <div className="col-span-12 mb-4 sm:col-span-12">
           {(
-            formData[formSelections.part]?.[formSelections.make]?.[
+            Object.keys(formData[formSelections.part]?.[formSelections.make]?.[
               formSelections.model
-            ]?.[formSelections.year] || []
+            ]?.[formSelections.year]) || []
           ).length === 0 ? (
             <input
               disabled={formSelections.year === ''}
@@ -218,9 +218,11 @@ const FormComponent = () => {
             >
               <option value="">- Select Option -</option>
               {(
-                formData[formSelections.part]?.[formSelections.make]?.[
-                  formSelections.model
-                ]?.[formSelections.year] || []
+                Object.keys(
+                  formData[formSelections.part]?.[formSelections.make]?.[
+                    formSelections.model
+                  ]?.[formSelections.year]
+                ) || []
               ).map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -233,19 +235,17 @@ const FormComponent = () => {
           <button
             onClick={() => {
               router.push(
-                `/search/${formSelections.part.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.make.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.model.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.year.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.size.replace(/ /g, '_')}`
+                `/search/${formSelections.part
+                  .replace(/ /g, '_')
+                  .replace(/-/, '')}/${formSelections.make
+                  .replace(/ /g, '_')
+                  .replace(/-/, '')}/${formSelections.model
+                  .replace(/ /g, '_')
+                  .replace(/-/, '')}/${formSelections.year
+                  .replace(/ /g, '_')
+                  .replace(/-/, '')}/${formSelections.size
+                  .replace(/ /g, '_')
+                  .replace(/-/, '')}`
               )
             }}
             // href={{ pathname: '/search', query: formSelections }}
