@@ -186,7 +186,18 @@ const FormComponent = () => {
           )}
         </div>
         <div className="col-span-12 mb-4 sm:col-span-12">
-          {(
+          <input
+            disabled={formSelections.year === ''}
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
+            onChange={(e) => {
+              setFormSelections((prev) => ({
+                ...prev,
+                size: e.target.value,
+              }))
+            }}
+            placeholder="Select Option"
+          />
+          {/* {(
             formData[formSelections.part]?.[formSelections.make]?.[
               formSelections.model
             ]?.[formSelections.year] || []
@@ -227,7 +238,7 @@ const FormComponent = () => {
                 </option>
               ))}
             </select>
-          )}
+          )} */}
         </div>
         <div className="col-span-12 flex items-center justify-between">
           <button
