@@ -48,9 +48,7 @@ const FormComponent = () => {
               }))
             }}
           >
-            <option disabled value="">
-              - Select Part -
-            </option>
+            <option value="">- Select Part -</option>
             {Object.keys(formData).map((part) => (
               <option key={part} value={part}>
                 {part}
@@ -65,7 +63,7 @@ const FormComponent = () => {
             className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
             required=""
             defaultValue=""
-            disabled={formData.part === ''}
+            disabled={formSelections.part === ''}
             data-gtm-form-interact-field-id="0"
             onChange={(e) => {
               setFormSelections((prev) => ({
@@ -77,9 +75,7 @@ const FormComponent = () => {
               }))
             }}
           >
-            <option disabled value="">
-              - Select Make -
-            </option>
+            <option value="">- Select Make -</option>
             {Object.keys(formData[formSelections.part] || {}).map((make) => (
               <option key={make} value={make}>
                 {make}
@@ -92,6 +88,7 @@ const FormComponent = () => {
             formData[formSelections.part]?.[formSelections.make] || {}
           ).length === 0 ? (
             <input
+              disabled={formSelections.make === ''}
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
               onChange={(e) => {
                 setFormSelections((prev) => ({
@@ -110,7 +107,7 @@ const FormComponent = () => {
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
               required=""
               defaultValue=""
-              disabled={formData.part === ''}
+              disabled={formSelections.make === ''}
               data-gtm-form-interact-field-id="0"
               onChange={(e) => {
                 setFormSelections((prev) => ({
@@ -121,9 +118,7 @@ const FormComponent = () => {
                 }))
               }}
             >
-              <option disabled value="">
-                - Select model -
-              </option>
+              <option value="">- Select model -</option>
               {Object.keys(
                 formData[formSelections.part]?.[formSelections.make] || {}
               ).map((model) => (
@@ -150,6 +145,7 @@ const FormComponent = () => {
             ] || {}
           ).length === 0 ? (
             <input
+              disabled={formSelections.model === ''}
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
               onChange={(e) => {
                 setFormSelections((prev) => ({
@@ -164,6 +160,7 @@ const FormComponent = () => {
             <select
               name="year"
               id="id_year"
+              disabled={formSelections.model === ''}
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
               required=""
               onChange={(e) => {
@@ -195,6 +192,7 @@ const FormComponent = () => {
             ]?.[formSelections.year] || []
           ).length === 0 ? (
             <input
+              disabled={formSelections.year === ''}
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
               onChange={(e) => {
                 setFormSelections((prev) => ({
@@ -208,7 +206,7 @@ const FormComponent = () => {
             <select
               name="size"
               id="id_size"
-              required=""
+              disabled={formSelections.year === ''}
               onChange={(e) => {
                 setFormSelections((prev) => ({
                   ...prev,
@@ -218,9 +216,7 @@ const FormComponent = () => {
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
               defaultValue=""
             >
-              <option value="" disabled>
-                - Select Option -
-              </option>
+              <option value="">- Select Option -</option>
               {(
                 formData[formSelections.part]?.[formSelections.make]?.[
                   formSelections.model

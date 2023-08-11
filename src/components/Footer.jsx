@@ -91,6 +91,7 @@ function NewsletterForm() {
           type="email"
           placeholder="Email address"
           autoComplete="email"
+          required
           aria-label="Email address"
           className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-orange-400 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-orange-400 focus:outline-none focus:ring-orange-400/5"
         />
