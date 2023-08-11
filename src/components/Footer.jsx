@@ -13,6 +13,7 @@ const navigation = [
     links: [
       { title: 'Used Engines', href: '/used-engines-for-sale' },
       { title: 'About Us', href: '/about' },
+      { title: 'FAQs', href: '/faqs' },
       { title: 'Warranty', href: '/warranty' },
       { title: 'Policy', href: '/policy' },
     ],
