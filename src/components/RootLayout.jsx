@@ -31,7 +31,7 @@ import Ford from '@/images/clients/logos/ford.png'
 import Audi from '@/images/clients/logos/12.png'
 import logo from '@/images/clients/logos/logos.svg'
 import banner from '@/images/landing-banner.jpg'
-import { CallToAction } from './CallToAction'
+import { CallToAction, CallToActionLink } from './CallToAction'
 import { ClockIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 const RootLayoutContext = createContext({})
@@ -85,9 +85,9 @@ function Header({
           </div>
         </div>
         <div className="flex items-center gap-x-4">
-          <CallToAction className="hidden md:block" invert={invert}>
+          <CallToActionLink href="mailto:info@swapengines.com" className="hidden md:block" invert={invert}>
             info@swapengines.com
-          </CallToAction>
+          </CallToActionLink>
           <a
             href="tel:+18662417434"
             className="inline-flex w-fit rounded-full bg-orange-400 px-4 py-1.5 text-sm font-semibold text-white transition duration-300 hover:bg-orange-600"

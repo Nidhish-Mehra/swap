@@ -18,8 +18,8 @@ export default async function CaseStudies({ children, _segments }) {
           <Container formContainer={true} className="mt-12 sm:mt-40">
             <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
               <FormComponent />
-              <div className='pl-16'>
-                <h1 className="hidden font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
+              <div className='pl-16 hidden sm:block'>
+                <h1 className="font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl">
                   {brand?.title}
                 </h1>
                 <p className="text-neutral-200">{brand?.description}</p>

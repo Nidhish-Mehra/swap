@@ -23,7 +23,7 @@ const FormComponent = () => {
 
   return (
     <div className="w-full max-w-xl">
-      <form className="mb-4 grid grid-cols-12 gap-1 rounded bg-white px-8 pb-8 pt-6 shadow-md sm:gap-4">
+      <form className="mb-4 grid grid-cols-12 gap-1 rounded bg-white px-8 pb-8 pt-6 shadow-md sm:min-w-[450px] sm:gap-4">
         <div className="col-span-12">
           <p className="mt-2 text-sm text-neutral-600">
             Fill the form to get your{' '}
@@ -234,19 +234,37 @@ const FormComponent = () => {
           )}
         </div>
         <div className="col-span-12 flex items-center justify-between">
-          <Link
-            href={{ pathname: '/search', query: formSelections }}
+          <button
+            onClick={() => {
+              router.push(
+                `/search/${formSelections.part.replace(
+                  / /g,
+                  '_'
+                )}/${formSelections.make.replace(
+                  / /g,
+                  '_'
+                )}/${formSelections.model.replace(
+                  / /g,
+                  '_'
+                )}/${formSelections.year.replace(
+                  / /g,
+                  '_'
+                )}/${formSelections.size.replace(/ /g, '_')}`
+              )
+            }}
+            // href={{ pathname: '/search', query: formSelections }}
             disabled={
-              formSelections.make === '' &&
-              formSelections.model === '' &&
-              formSelections.part === '' &&
-              formSelections.size === ''
+              formSelections.make === '' ||
+              formSelections.model === '' ||
+              formSelections.part === '' ||
+              formSelections.size === '' ||
+              formSelections.year === ''
             }
             className="focus:shadow-outline w-full rounded bg-orange-400 px-4 py-2 text-center font-bold text-white hover:bg-orange-700 focus:outline-none"
             type="button"
           >
             Search
-          </Link>
+          </button>
         </div>
       </form>
     </div>

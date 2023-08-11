@@ -20,13 +20,13 @@ const navigation = [
   {
     title: 'Brands',
     links: [
-      { title: 'BMW', href: '/about' },
-      { title: 'Porche', href: '/process' },
-      { title: 'Mercedes', href: '/blog' },
-      { title: 'Honda', href: '/contact' },
-      { title: 'Ford', href: '/contact' },
-      { title: 'Chevy', href: '/contact' },
-      { title: 'Audi', href: '/contact' },
+      { title: 'BMW', href: '/used-engines/BMW' },
+      { title: 'Porche', href: '/used-engines/Porche' },
+      { title: 'Mercedes', href: '/used-engines/Mercedes' },
+      { title: 'Honda', href: '/used-engines/Honda' },
+      { title: 'Ford', href: '/used-engines/Ford' },
+      { title: 'Chevy', href: '/used-engines/Chevy' },
+      { title: 'Audi', href: '/used-engines/Audi' },
     ],
   },
   {
