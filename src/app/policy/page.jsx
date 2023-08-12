@@ -43,12 +43,12 @@ export default async function Blog() {
                       <p>Privacy Statement</p>
                     </h2>
                     <p className="mt-6 text-base text-neutral-600">
-                      &quot;Swap Motors.&quot; maintains excellent data privacy
+                      &quot;Swap Motors&quot; maintains excellent data privacy
                       to sustain good customer relation for future aspect. We
                       and our associates do respect your concerns about personal
                       information and keep 100% control or check, where
                       dissemination of any information can&apos;t be possible.
-                      At Swap Motors. &quot;we&quot;, &quot;our&quot;, and
+                      At Swap Motors &quot;we&quot;, &quot;our&quot;, and
                       &quot;us&quot; are references to the entity answerable for
                       the handling your personal information. This notice
                       applies to the personal information that are collected
@@ -59,7 +59,7 @@ export default async function Blog() {
                       associates do respect your concerns about personal
                       information and keep 100% control or check, where
                       dissemination of any information can&apos;t be possible.
-                      At Swap Motors. &quot;we&quot;, &quot;our&quot;, and
+                      At Swap Motors &quot;we&quot;, &quot;our&quot;, and
                       &quot;us&quot; are references to the entity answerable for
                       the handling your personal information. This notice
                       applies to the personal information that are collected
@@ -67,7 +67,7 @@ export default async function Blog() {
                       pages and offline collection methods.
                     </p>
                     <p className="mt-6 text-base text-neutral-600">
-                      Swap Motors. Notice describes what types of information it
+                      Swap Motors Notice describes what types of information it
                       collects, how can we use this personal information, with
                       whom can we share this information and how can we keep
                       information privacy, what are those precautionary measures
@@ -77,7 +77,7 @@ export default async function Blog() {
                       regarding privacy practices.
                     </p>
                     <p className="mt-6 text-base text-neutral-600">
-                      Services that Swap Motors. provides is linked to
+                      Services that Swap Motors provides is linked to
                       third-party websites or contain third-party cookies that
                       are not owned or controlled by us. Please go through once
                       the privacy practices of these third-party websites and
@@ -234,7 +234,7 @@ export default async function Blog() {
                       <strong className="text-orange-400">
                         Within Swap Motors :{' '}
                       </strong>{' '}
-                      Depending on the requirements, our Swap Motors. internal
+                      Depending on the requirements, our Swap Motors internal
                       department may use your personal information for various
                       uses like IT department may have access to use data, our
                       sales departments may have access to account and order
@@ -302,7 +302,7 @@ export default async function Blog() {
                       <p>Cookies and similar technologies</p>
                     </h2>
                     <p className="mt-6 text-base text-neutral-600">
-                      Like other companies, &quot;Swap Motors.&quot; uses
+                      Like other companies, &quot;Swap Motors&quot; uses
                       cookies and similar technologies to personalize and
                       enhance your experience with our services. We and
                       third-parties (partner) including Google Analytics may use

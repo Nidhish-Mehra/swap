@@ -51,10 +51,10 @@ function Discover() {
     <Section title="Customer Satisfaction Is Our Goal" image={{ src: wheels }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          At Swap Motors., used engine warranty is restricted to only
+          At Swap Motors, used engine warranty is restricted to only
           manufacturing defects of the following parts: block, heads, pistons,
           crankshafts, camshafts, rockers, and other internal components only.
-          Swap Motors. warranty doesn&apos;t cover any attached accessory parts
+          Swap Motors warranty doesn&apos;t cover any attached accessory parts
           such as
           <strong className="font-semibold text-orange-400">
             {' '}
@@ -62,16 +62,16 @@ function Discover() {
             manifolds, wire harnesses, valve covers, gaskets, brackets, oil pan,
             flywheel, etc.
           </strong>
-          At Swap Motors., used engine warranty is restricted to only
+          At Swap Motors, used engine warranty is restricted to only
           manufacturing defects of the following parts: block, heads, pistons,
           crankshafts, camshafts, rockers, and other internal components only.
-          Swap Motors. warranty doesn&apos;t cover any attached accessory parts
+          Swap Motors warranty doesn&apos;t cover any attached accessory parts
           such as switches, sensors, cables, electronics, belts, hoses, water
           pumps, manifolds, wire harnesses, valve covers, gaskets, brackets, oil
           pan, flywheel, etc.
         </p>
         <p>
-          Swap Motors. is also not accountable for any charges associated with
+          Swap Motors is also not accountable for any charges associated with
           inappropriate engine installation and labor costs.
         </p>
         <p>
@@ -89,7 +89,7 @@ function Discover() {
         <p>
           All returned used engines or cancelled orders are subject to 25%
           handling and restocking fees, customer assumes all the shipping costs
-          unless the replacement is authorized by Swap Motors. during the
+          unless the replacement is authorized by Swap Motors during the
           warranty period. If an order gets cancelled after the payment has been
           processed and the order is still not shipped, the customer will bear
           the processing fees of the credit card.
@@ -111,7 +111,7 @@ function Build() {
         </p>
         <p>
           We are not liable for any refund which is associated with USED ENGINES
-          or parts that were not diagnosed correctly. Swap Motors. will not
+          or parts that were not diagnosed correctly. Swap Motors will not
           assume towing, shipping, transportation charges, or rental car costs.
           Any wrong information will automatically cancel your warranty.
         </p>
@@ -122,7 +122,7 @@ function Build() {
           all the parts before signing on delivery.
         </p>
         <p>
-          Used low mileage engine is the best in our knowledge. Swap Motors.
+          Used low mileage engine is the best in our knowledge. Swap Motors
           warranty doesn&apos;t apply to oil leaks/damage on engines due to
           seals, gaskets, and filters that have not been replaced.
         </p>
@@ -137,19 +137,19 @@ function Deliver() {
       <div className="space-y-6 text-base text-neutral-600">
         <p>
           OEM auto parts are interchangeable within different makes and models.
-          Swap Motors. is using a VIN compatibility tool to assure that the
+          Swap Motors is using a VIN compatibility tool to assure that the
           ordered used engine for sale is an adequate and exact fit for your
           vehicle. All deposits made to us are non-refundable unless otherwise
           noted.
         </p>
         <p>
-          Return or exchange of used engines are authorized by Swap Motors.
+          Return or exchange of used engines are authorized by Swap Motors
           Shipped order if returned should be received in the same assembled
           condition as it was originally shipped to the customer. If in case
           received order is not in the same condition because of any reason, NO
           REFUND will be done from our side. Refunds are only authorized if the
           replacement is not available. If the engine was disassembled or
-          altered in any way without Swap Motors. written authorization, the
+          altered in any way without Swap Motors written authorization, the
           warranty will be void. Our used engines are meticulously tested,
           visually inspected, and properly cleaned.
         </p>
@@ -226,13 +226,13 @@ function Values() {
           </GridListItem>
           <GridListItem className="flex" title="">
             warranty will cover only a one-time claim per product purchased from
-            us. Swap Motors. warranty claim representative will work with you to
+            us. Swap Motors warranty claim representative will work with you to
             ensure your experience is a complete success. We reserve the right
             to charge any applicable fees in connection with the processing of
             your warranty claim.
           </GridListItem>
           <GridListItem className="flex" title="">
-            Swap Motors. permits only original purchasers for any deal or
+            Swap Motors permits only original purchasers for any deal or
             purchase and guarantees that our sold used engine shall be free from
             knocking excessive oil consumption and cracks in the block. We
             follow the same Auto terms and conditions as other suppliers are
@@ -290,7 +290,7 @@ function Limitations() {
           </GridListItem>
           <GridListItem className="flex" title="7 ">
             Swap Motors warranty does not apply for an initial installation.
-            Swap Motors. warranty claim must be submitted and authorized by Swap
+            Swap Motors warranty claim must be submitted and authorized by Swap
             Motors. warranty technician prior to any work being performed.
           </GridListItem>
           <GridListItem className="flex" title="8 ">
@@ -415,13 +415,13 @@ export default function Warranty() {
             attached, left on the block are for convenience purposes only.
           </p>
           <p className="py-2">
-            Subject to the limitations listed below, Swap Motors. says they will
+            Subject to the limitations listed below, Swap Motors says they will
             either send a replacement engine of the same kind that is available
             at the time or refund the customer purchase price if the engine is
             defective and no replacement is available.
           </p>
           <p className="py-2">
-            Swap Motors. will not be responsible for any labour cost incurred by
+            Swap Motors will not be responsible for any labour cost incurred by
             the customer unless prior agreement is made.
           </p>
         </div>
@@ -433,7 +433,7 @@ export default function Warranty() {
         <div>
           <h3 className="text-3xl text-orange-400">Limited Liability</h3>
           <p className="py-2">
-            The Swap Motors. liability is solely and exclusively limited to
+            The Swap Motors liability is solely and exclusively limited to
             supplying low mileage used engines replacement whenever one is
             available or refunding customer with the purchase price. Swap
             Motors. doesn&apos;t accept any liability associated with labor
@@ -441,7 +441,7 @@ export default function Warranty() {
             antifreeze, or damage to other engine or parts or components towing
             charges, telephone calls, freight, lost profits, lost time,
             substitute transportation, or replacement vehicle or any other
-            consequential damages. Swap Motors. is not responsible for any
+            consequential damages. Swap Motors is not responsible for any
             failure resulting from improper installation, modification of the
             product faulty or incompatible parts and accessories, and/or
             abnormal use of operation. State and federal laws regulate odometer
@@ -456,7 +456,7 @@ export default function Warranty() {
             Therefore, all representations of mileage are estimates.
           </p>
           <p className="py-2">
-            Swap Motors. offers an extensive engine warranty regardless of the
+            Swap Motors offers an extensive engine warranty regardless of the
             mileage, based upon our expertise and evaluation of our products.
           </p>
         </div>

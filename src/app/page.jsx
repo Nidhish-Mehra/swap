@@ -281,7 +281,7 @@ function Services() {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Swap Motors. was established in 2010 with the objective to provide
+          Swap Motors was established in 2010 with the objective to provide
           customers with high- quality and low mileage used engines. Keeping the
           fact in mind that new vehicle or engine can cost a fortune, we offer
           largest collection of car engines for sale which is as reliable as the
@@ -299,7 +299,7 @@ function Services() {
 
 export const metadata = {
   description:
-    `Swap Motors. was established in 2010 with the objective to provide
+    `Swap Motors was established in 2010 with the objective to provide
     customers with high- quality and low mileage used engines. Keeping the
     fact in mind that new vehicle or engine can cost a fortune, we offer
     largest collection of car engines for sale which is as reliable as the

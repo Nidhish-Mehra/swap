@@ -48,12 +48,13 @@ function Navigation() {
             <ul role="list" className="mt-4 text-sm text-neutral-700">
               {section.links.map((link) => (
                 <li key={link.title} className="mt-4">
-                  <Link
+                  <a
+                    target='_blank'
                     href={link.href}
                     className="transition hover:text-orange-400"
                   >
                     {link.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
