@@ -6,11 +6,11 @@ import { Container } from '@/components/Container'
 import { StatList, StatListItem } from '@/components/StatList'
 import FormComponent from '@/components/Form'
 import { FadeIn } from '@/components/FadeIn'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { PhoneIcon } from '@heroicons/react/24/outline'
 import usedEngines from '@/images/clients/logos/used_engine.webp'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const CarPartCard = ({
   part,
@@ -22,6 +22,56 @@ const CarPartCard = ({
   price,
   warranty,
 }) => {
+  const router = useRouter()
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    email: '',
+  })
+
+  const [errors, setErrors] = useState({})
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    if (
+      (name === 'number' && parseInt(value) < 9999999999) ||
+      (name === 'number' && value === '')
+    ) {
+      setFormData((prevData) => ({ ...prevData, [name]: value }))
+    } else if (name !== 'number') {
+      setFormData((prevData) => ({ ...prevData, [name]: value }))
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const validationErrors = validateForm(formData)
+    console.log(validationErrors)
+    if (Object.keys(validationErrors).length === 0) {
+      router.push('/thankyou')
+    } else {
+      setErrors(validationErrors)
+    }
+  }
+
+  const validateForm = (data) => {
+    const errors = {}
+    if (!data.name) {
+      errors.name = 'Name is required'
+    }
+    if (!data.number) {
+      errors.number = 'Mobile number is required'
+    } else if (!/^\d{10}$/.test(data.number)) {
+      errors.number = 'Mobile number should be 10 digits'
+    }
+    if (!data.email) {
+      errors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+      errors.email = 'Please provide valid email'
+    }
+    return errors
+  }
+
   return (
     <div className="w-full sm:flex">
       <div className="rounded-t-lg bg-white bg-opacity-10 p-6 text-white shadow-md backdrop-blur-md backdrop-filter sm:w-1/2 sm:rounded-l-lg sm:rounded-t-none">
@@ -69,7 +119,10 @@ const CarPartCard = ({
           </span>
         </div>
       </div>
-      <div className="relative rounded-b-lg bg-white p-6 text-black shadow-md sm:w-1/2 sm:rounded-b-none sm:rounded-r-lg">
+      <form
+        onSubmit={handleSubmit}
+        className="relative rounded-b-lg bg-white p-6 text-black shadow-md sm:w-1/2 sm:rounded-b-none sm:rounded-r-lg"
+      >
         <h2 className="mb-2 text-xl font-semibold">
           <span className="font-light">Get Quote for :- </span>{' '}
           {`${make} ${model} ${year}`}{' '}
@@ -78,35 +131,47 @@ const CarPartCard = ({
         <div className="col-span-12 mb-4 mt-8 sm:col-span-12">
           <input
             className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
-            id="model"
+            id="name"
+            name="name"
             type="text"
             placeholder="Name"
+            required
+            value={formData.name}
+            onChange={handleChange}
           />
         </div>
         <div className="col-span-12 mb-4 sm:col-span-12">
           <input
             className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
-            id="model"
+            id="number"
             type="number"
-            maxlength="10"
+            name="number"
+            required
+            value={formData.number}
+            onChange={handleChange}
             placeholder="Phone Number"
           />
+          {errors.number && <p className="text-xs pl-2 text-red-600">{errors.number}</p>}
         </div>
         <div className="col-span-12 mb-4 sm:col-span-12">
           <input
             className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:shadow-orange-400 focus:outline-none"
-            id="model"
-            type="text"
+            id="email"
+            type="email"
+            name="email"
+            required
             placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div className="mt-4">
-          <a
-            href="tel:+1234567890"
+          <button
+            type="submit"
             className="mx-auto flex w-fit rounded-lg bg-orange-500 px-4 py-2 text-white transition duration-300 hover:bg-orange-600"
           >
             <span>Get Quote</span>
-          </a>
+          </button>
         </div>
         <div className="bottom-2 right-2 mt-4 flex sm:absolute">
           This isn&apos;t your part?
@@ -114,17 +179,33 @@ const CarPartCard = ({
             <span className="ml-2 text-orange-400">Keep Searching.</span>
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
 
 export default function Search({ params }) {
-  const part = params.partdetails[0].replace(/_/g, ' ')
-  const make = params.partdetails[1].replace(/_/g, ' ')
-  const model = params.partdetails[2].replace(/_/g, ' ')
-  const year = params.partdetails[3].replace(/_/g, ' ')
-  const size = params.partdetails[4].replace(/_/g, ' ')
+  function capitalizeAfterSpace(input) {
+    return input.replace(
+      /(?:^|\s)([a-z])/g,
+      (_, match) => ` ${match.toUpperCase()}`
+    )
+  }
+  const part = capitalizeAfterSpace(
+    decodeURIComponent(params.partdetails[0]).replace(/_/g, ' ')
+  )
+  const make = capitalizeAfterSpace(
+    decodeURIComponent(params.partdetails[1]).replace(/_/g, ' ')
+  )
+  const model = capitalizeAfterSpace(
+    decodeURIComponent(params.partdetails[2]).replace(/_/g, ' ')
+  )
+  const year = capitalizeAfterSpace(
+    decodeURIComponent(params.partdetails[3]).replace(/_/g, ' ')
+  )
+  const size = capitalizeAfterSpace(
+    decodeURIComponent(params.partdetails[4]).replace(/_/g, ' ')
+  )
   return (
     <div>
       <Container className="mt-12 sm:mt-40">

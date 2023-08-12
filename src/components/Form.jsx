@@ -6,12 +6,6 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 const FormComponent = () => {
-  const years = [
-    2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011,
-    2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999,
-    1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990,
-  ]
-
   const router = useRouter()
   const [formSelections, setFormSelections] = useState({
     part: '',
@@ -20,6 +14,13 @@ const FormComponent = () => {
     year: '',
     size: '',
   })
+
+  function capitalizeAfterSpace(input) {
+    return input.replace(
+      /(?:^|\s)([a-z])/g,
+      (_, match) => ` ${match.toUpperCase()}`
+    )
+  }
 
   return (
     <div className="w-full max-w-xl">
@@ -78,7 +79,9 @@ const FormComponent = () => {
             <option value="">- Select Make -</option>
             {Object.keys(formData[formSelections.part] || {}).map((make) => (
               <option key={make} value={make}>
-                {make}
+                {capitalizeAfterSpace(
+                  make.replace(/_/g, ' ').replace(/-/g, ' ')
+                )}
               </option>
             ))}
           </select>
@@ -123,7 +126,9 @@ const FormComponent = () => {
                 formData[formSelections.part]?.[formSelections.make] || {}
               ).map((model) => (
                 <option key={model} value={model}>
-                  {model}
+                  {capitalizeAfterSpace(
+                    model.replace(/-/g, ' ').replace(/_/g, ' ')
+                  )}
                 </option>
               ))}
             </select>
@@ -243,21 +248,22 @@ const FormComponent = () => {
         <div className="col-span-12 flex items-center justify-between">
           <button
             onClick={() => {
-              router.push(
-                `/search/${formSelections.part.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.make.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.model.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.year.replace(
-                  / /g,
-                  '_'
-                )}/${formSelections.size.replace(/ /g, '_')}`
-              )
+              const part = formSelections.part
+                .replace(/ /g, '_')
+                .replace(/-/g, '_')
+              const make = formSelections.make
+                .replace(/ /g, '_')
+                .replace(/-/g, '_')
+              const model = formSelections.model
+                .replace(/ /g, '_')
+                .replace(/-/g, '_')
+              const year = formSelections.year
+                .replace(/ /g, '_')
+                .replace(/-/g, '_')
+              const size = formSelections.size
+                .replace(/ /g, '_')
+                .replace(/-/g, '_')
+              router.push(`/search/${part}/${make}/${model}/${year}/${size}`)
             }}
             // href={{ pathname: '/search', query: formSelections }}
             disabled={
