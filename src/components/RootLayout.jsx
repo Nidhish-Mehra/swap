@@ -53,6 +53,31 @@ function MenuIcon(props) {
   )
 }
 
+function BreadCrumbs() {
+  const path = usePathname()
+  const allPaths = path.split('/').filter((x) => x !== '')
+  function capitalizeAfterSpace(input) {
+    return input.replace(
+      /(?:^|\s)([a-z])/g,
+      (_, match) => ` ${match.toUpperCase()}`
+    )
+  }
+
+  return (
+    <div className="w-full bg-slate-400 text-sm font-semibold text-white">
+      <Container>
+        <Link href={`/`}>Home</Link>
+        {allPaths.map((item, index) => (
+          <Link key={item} href={`/${allPaths.slice(0, index + 1).join('/')}`}>
+            {' '}&gt;{' '}
+            {capitalizeAfterSpace(item.replace(/-/g, ' ').replace(/_/g, ' '))}
+          </Link>
+        ))}
+      </Container>
+    </div>
+  )
+}
+
 function Header({
   panelId,
   invert = false,
@@ -64,110 +89,140 @@ function Header({
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)
   const pathName = usePathname()
   return (
-    <Container>
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          aria-label="Home"
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
-        >
-          <Image className="h-20 w-auto" src={logo} alt="logo" unoptimized />
-        </Link>
-        <div className="hidden items-center sm:flex">
-          <ClockIcon className="h-8 text-orange-400" />
-          <div className="ml-2 text-sm font-semibold text-orange-400">
-            <p>
-              Monday - Friday 9:00am-8:00pm EST
-              <br />
-              Saturday 11:00am-4:00pm EST
-            </p>
+    <>
+      <Container>
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            aria-label="Home"
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+          >
+            <Image className="h-20 w-auto" src={logo} alt="logo" unoptimized />
+          </Link>
+          <div className="hidden items-center sm:flex">
+            <ClockIcon className="h-8 text-orange-400" />
+            <div className="ml-2 text-sm font-semibold text-orange-400">
+              <p className="text-black">
+                Monday - Friday 9:00am-8:00pm EST
+                <br />
+                Saturday 11:00am-4:00pm EST
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-x-4">
+            {/* <CallToActionLink href="mailto:info@swapengines.com" className="hidden md:block" invert={invert}>
+            info@swapengines.com
+          </CallToActionLink> */}
+            <a href="tel:+18662417434" className="hidden items-center sm:flex">
+              <div className="rounded-full border border-orange-400 p-4">
+                <PhoneIcon className="animate-phone-ring h-6 text-orange-400" />
+              </div>
+              <div className="ml-2">
+                <p className="text-sm">Speak with our specialist now</p>
+                <p className="text-xl font-semibold text-orange-400">
+                  +1-866-241-7434
+                </p>
+              </div>
+            </a>
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={onToggle}
+              aria-expanded={expanded.toString()}
+              aria-controls={panelId}
+              className={clsx(
+                'group -m-2.5 block rounded-full p-2.5 transition sm:hidden',
+                invert ? 'hover:bg-white/10' : 'hover:bg-orange-400/10'
+              )}
+              aria-label="Toggle navigation"
+            >
+              <Icon
+                className={clsx(
+                  'h-6 w-6',
+                  invert
+                    ? 'fill-white group-hover:fill-neutral-200'
+                    : 'fill-orange-400 group-hover:fill-neutral-700'
+                )}
+              />
+            </button>
           </div>
         </div>
-        <div className="flex items-center gap-x-4">
-          <CallToActionLink href="mailto:info@swapengines.com" className="hidden md:block" invert={invert}>
-            info@swapengines.com
-          </CallToActionLink>
-          <a
-            href="tel:+18662417434"
-            className="inline-flex w-fit rounded-full bg-orange-400 px-4 py-1.5 text-sm font-semibold text-white transition duration-300 hover:bg-orange-600"
-          >
-            <PhoneIcon className="animate-phone-ring h-6" />
-            <span className="ml-2">+1-866-241-7434</span>
-          </a>
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={onToggle}
-            aria-expanded={expanded.toString()}
-            aria-controls={panelId}
-            className={clsx(
-              'group -m-2.5 block rounded-full p-2.5 transition sm:hidden',
-              invert ? 'hover:bg-white/10' : 'hover:bg-orange-400/10'
-            )}
-            aria-label="Toggle navigation"
-          >
-            <Icon
-              className={clsx(
-                'h-6 w-6',
-                invert
-                  ? 'fill-white group-hover:fill-neutral-200'
-                  : 'fill-orange-400 group-hover:fill-neutral-700'
-              )}
-            />
-          </button>
-        </div>
-      </div>
-      <nav className="hidden items-center justify-between border-t border-t-orange-400 text-orange-400 sm:flex ">
-        <Link
-          href="/used-engines-for-sale"
+        <div
           className={
-            'relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white'
+            invert
+              ? 'hidden'
+              : 'item-center flex justify-between border-t border-t-orange-400 py-1 sm:hidden'
           }
         >
-          Used Engines
-          {pathName === '/used-engines-for-sale' && (
-            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
-          )}
-        </Link>
-        <Link
-          href="/about"
-          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
-        >
-          About Us
-          {pathName === '/about' && (
-            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
-          )}
-        </Link>
-        <Link
-          href="/faqs"
-          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
-        >
-          FAQs
-          {pathName === '/faqs' && (
-            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
-          )}
-        </Link>
-        <Link
-          href="/warranty"
-          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
-        >
-          Warranty
-          {pathName === '/warranty' && (
-            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
-          )}
-        </Link>
-        <Link
-          href="/policy"
-          className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
-        >
-          Policy
-          {pathName === '/policy' && (
-            <span className="absolute bottom-0 left-1/2 h-1 rounded-t-full w-1/2 -translate-x-1/2 transform bg-orange-400 transition-transform"></span>
-          )}
-        </Link>
-      </nav>
-    </Container>
+          <a href="tel:+18662417434" className="flex items-center">
+            <div className="rounded-full border border-orange-400 p-4">
+              <PhoneIcon className="animate-phone-ring h-5 text-orange-400" />
+            </div>
+            <div className="ml-2">
+              <p className="text-lg font-semibold text-orange-400">
+                +1-866-241-7434
+              </p>
+            </div>
+          </a>
+          <div className="my-auto text-xs">
+            M-F 9AM - 8PM EST
+            <br />
+            SAT 11AM - 4PM EST
+          </div>
+        </div>
+        <nav className="hidden items-center justify-between border-t border-t-orange-400 text-orange-400 sm:flex ">
+          <Link
+            href="/used-engines-for-sale"
+            className={
+              'relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white'
+            }
+          >
+            Used Engines
+            {pathName === '/used-engines-for-sale' && (
+              <span className="absolute bottom-0 left-1/2 h-1 w-1/2 -translate-x-1/2 transform rounded-t-full bg-orange-400 transition-transform"></span>
+            )}
+          </Link>
+          <Link
+            href="/about"
+            className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+          >
+            About Us
+            {pathName === '/about' && (
+              <span className="absolute bottom-0 left-1/2 h-1 w-1/2 -translate-x-1/2 transform rounded-t-full bg-orange-400 transition-transform"></span>
+            )}
+          </Link>
+          <Link
+            href="/faqs"
+            className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+          >
+            FAQs
+            {pathName === '/faqs' && (
+              <span className="absolute bottom-0 left-1/2 h-1 w-1/2 -translate-x-1/2 transform rounded-t-full bg-orange-400 transition-transform"></span>
+            )}
+          </Link>
+          <Link
+            href="/warranty"
+            className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+          >
+            Warranty
+            {pathName === '/warranty' && (
+              <span className="absolute bottom-0 left-1/2 h-1 w-1/2 -translate-x-1/2 transform rounded-t-full bg-orange-400 transition-transform"></span>
+            )}
+          </Link>
+          <Link
+            href="/policy"
+            className="relative w-full cursor-pointer py-4 text-center font-semibold transition hover:bg-orange-400 hover:text-white"
+          >
+            Policy
+            {pathName === '/policy' && (
+              <span className="absolute bottom-0 left-1/2 h-1 w-1/2 -translate-x-1/2 transform rounded-t-full bg-orange-400 transition-transform"></span>
+            )}
+          </Link>
+        </nav>
+      </Container>
+      <BreadCrumbs />
+    </>
   )
 }
 
@@ -291,7 +346,7 @@ function RootLayoutInner({ children }) {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header className="sticky top-0 z-50 rounded-t-md">
         <div
-          className="absolute left-0 right-0 z-40 bg-white shadow-md pt-4"
+          className="absolute left-0 right-0 z-40 bg-white pt-4 shadow-md"
           aria-hidden={expanded ? 'true' : undefined}
           inert={expanded ? '' : undefined}
         >
@@ -377,8 +432,10 @@ function RootLayoutInner({ children }) {
             src={banner}
             unoptimized
             alt="bg"
-            className="absolute inset-x-0 -top-14 -z-10 h-[800px] w-full fill-neutral-50 stroke-orange-400/5 "
+            className="absolute inset-x-0 -top-14 -z-10 hidden h-[800px] w-full fill-neutral-50 stroke-orange-400/5 sm:block"
           />
+          <div className="absolute inset-x-0 -top-14 -z-10 hidden h-[800px] w-full bg-white fill-neutral-50 stroke-orange-400/5 opacity-70 sm:block" />
+
           <main className="w-full flex-auto">{children}</main>
 
           <Footer />

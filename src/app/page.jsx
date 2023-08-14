@@ -96,15 +96,28 @@ function Clients() {
         <FadeInStagger faster>
           <ul
             role="list"
-            className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10 lg:grid-cols-7"
+            className="mt-10 grid grid-cols-4 content-center gap-x-8 gap-y-10 lg:grid-cols-7"
           >
             {clients.map(([client, logo]) => (
               <li key={client}>
                 <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
-                  <p className="text-center font-display text-sm font-semibold tracking-wider text-white">
-                    {client}
-                  </p>
+                  <Link
+                    href={`/search/engines/${client
+                      .toLowerCase()
+                      .replace(/ /g, '_')}`}
+                  >
+                    <div className="flex items-center">
+                      <Image
+                        className="h-6 w-auto"
+                        src={logo}
+                        alt={client}
+                        unoptimized
+                      />
+                      <p className="text-center font-display pl-0.5 text-sm font-semibold tracking-wider text-white">
+                        {client}&nbsp;&gt;&gt;
+                      </p>
+                    </div>
+                  </Link>
                 </FadeIn>
               </li>
             ))}
@@ -298,8 +311,7 @@ function Services() {
 }
 
 export const metadata = {
-  description:
-    `Swap Motors was established in 2010 with the objective to provide
+  description: `Swap Motors was established in 2010 with the objective to provide
     customers with high- quality and low mileage used engines. Keeping the
     fact in mind that new vehicle or engine can cost a fortune, we offer
     largest collection of car engines for sale which is as reliable as the
@@ -315,60 +327,68 @@ export default async function Home() {
   return (
     <>
       <Container formContainer={true} className="mt-12 sm:mt-40">
-        <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
+        <FadeIn className="flex-column items-center justify-between pt-12 sm:flex md:pt-0">
           <FormComponent />
-          <div className="hidden pl-16 sm:block">
-            <h1 className="hidden font-display text-2xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-3xl md:block">
+          <div className="px-2 sm:px-0 sm:pl-16">
+            <h1 className="hidden font-display text-2xl font-semibold tracking-tight text-orange-400 [text-wrap:balance] sm:text-3xl sm:text-orange-950 md:block">
               Find A grade used engines with 3-5 Years warranty.
             </h1>
             <div className="flex items-center py-3">
-              <Image
-                src={Shipped}
-                alt="Shipping"
-                className="mr-2 h-8"
-                unoptimized
-              />
+              <div className="mr-2 flex h-12 w-12 items-center  rounded-full bg-white">
+                <Image
+                  src={Shipped}
+                  alt="Shipping"
+                  className="h-8"
+                  unoptimized
+                />
+              </div>
               <div>
-                <p className="font-display font-medium text-orange-400 ">
+                <p className="font-display font-medium text-orange-400 sm:text-orange-950 ">
                   Flat Rate Shipping (Commercial address)
                 </p>
               </div>
             </div>
             <div className="flex items-center py-3">
-              <Image
-                src={WarrantyImage}
-                alt="Shipping"
-                className="mr-2 h-8"
-                unoptimized
-              />
+              <div className="mr-2 flex h-12 w-12 items-center  rounded-full bg-white">
+                <Image
+                  src={WarrantyImage}
+                  alt="Shipping"
+                  className="h-8"
+                  unoptimized
+                />
+              </div>
               <div>
-                <p className="font-display font-medium text-orange-400 ">
+                <p className="font-display font-medium text-orange-400 sm:text-orange-950 ">
                   Up to 5 Years Unlimited Mile Warranty
                 </p>
               </div>
             </div>
             <div className="flex items-center py-3">
-              <Image
-                src={Headphones}
-                alt="Shipping"
-                className="mr-2 h-8"
-                unoptimized
-              />
+              <div className="mr-2 flex h-12 w-12 items-center  rounded-full bg-white">
+                <Image
+                  src={Headphones}
+                  alt="Shipping"
+                  className="h-8"
+                  unoptimized
+                />
+              </div>
               <div>
-                <p className="font-display font-medium text-orange-400 ">
+                <p className="font-display font-medium text-orange-400 sm:text-orange-950 ">
                   Excellent Customer Support
                 </p>
               </div>
             </div>
             <div className="flex items-center py-3">
-              <Image
-                src={Return}
-                alt="Shipping"
-                className="mr-2 h-8"
-                unoptimized
-              />
+              <div className="mr-2 flex h-12 w-12 items-center  rounded-full bg-white">
+                <Image
+                  src={Return}
+                  alt="Shipping"
+                  className="h-8"
+                  unoptimized
+                />
+              </div>
               <div>
-                <p className="font-display font-medium text-orange-400 ">
+                <p className="font-display font-medium text-orange-400 sm:text-orange-950 ">
                   No core charge for 30 days <br /> (For Transmission)
                 </p>
               </div>

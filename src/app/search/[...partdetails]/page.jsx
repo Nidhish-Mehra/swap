@@ -46,7 +46,6 @@ const CarPartCard = ({
   const handleSubmit = (e) => {
     e.preventDefault()
     const validationErrors = validateForm(formData)
-    console.log(validationErrors)
     if (Object.keys(validationErrors).length === 0) {
       router.push('/thankyou')
     } else {
@@ -73,28 +72,47 @@ const CarPartCard = ({
   }
 
   return (
-    <div className="w-full sm:flex">
-      <div className="rounded-t-lg bg-white bg-opacity-10 p-6 text-white shadow-md backdrop-blur-md backdrop-filter sm:w-1/2 sm:rounded-l-lg sm:rounded-t-none">
-        <h2 className="mb-2 text-xl font-semibold">
+    <div className="mt-8 flex w-full flex-col-reverse sm:mt-0 sm:flex-row">
+      <div className="rounded-b-lg bg-white bg-opacity-10 p-6 text-white shadow-md backdrop-blur-md backdrop-filter sm:w-1/2 sm:rounded-l-lg sm:rounded-t-none">
+        <p className="pt-4 text-orange-400 sm:hidden">
+          This part is available with us. Please call to get a free quote or
+          fill up this form.
+        </p>
+        <div className="mt-4 flex items-end justify-between sm:hidden">
+          <a
+            href="tel:+1234567890"
+            className="flex w-fit rounded-lg bg-orange-500 px-4 py-2 text-white transition duration-300 hover:bg-orange-600"
+          >
+            <PhoneIcon className="animate-phone-ring h-6" />
+            <span className="ml-2">Call Now</span>
+          </a>
+        </div>
+        <h2 className="mb-2 mt-12  text-xl font-semibold text-gray-800 sm:mt-0">
           {`${make} ${model} ${year}`}{' '}
           <span className="font-normal">({part})</span>
         </h2>
         <div className="flex flex-col-reverse justify-between sm:flex-row">
           <div className="grid w-full grid-cols-12">
-            <p className="col-span-6 mb-1 text-gray-400">Size: </p>
-            <span className="col-span-6 font-semibold text-white">{size}</span>
-            <p className="col-span-6 mb-1 text-gray-400">Availability: </p>{' '}
-            <span className="col-span-6 font-semibold text-white">
+            <p className="col-span-6 mb-1 text-gray-600">Size: </p>
+            <span className="col-span-6 font-semibold text-gray-800 ">
+              {size}
+            </span>
+            <p className="col-span-6 mb-1 text-gray-600">Availability: </p>{' '}
+            <span className="col-span-6 font-semibold text-gray-800 ">
               {availability}
             </span>
-            <p className="col-span-6 mb-1 text-gray-400">Price: </p>
-            <span className="col-span-6 font-semibold text-white">{price}</span>
-            <p className="col-span-6 mb-2 text-gray-400">Warranty:</p>{' '}
-            <span className="col-span-6 font-semibold text-white">
+            <p className="col-span-6 mb-1 text-gray-600">Price: </p>
+            <span className="col-span-6 font-semibold text-gray-800 ">
+              {price}
+            </span>
+            <p className="col-span-6 mb-2 text-gray-600">Warranty:</p>{' '}
+            <span className="col-span-6 font-semibold text-gray-800 ">
               {warranty}
             </span>
-            <p className="col-span-6 mb-2 text-gray-400">Shipping:</p>{' '}
-            <span className="col-span-6 font-semibold text-white">Free</span>
+            <p className="col-span-6 mb-2 text-gray-600">Shipping:</p>{' '}
+            <span className="col-span-6 font-semibold text-gray-800 ">
+              Free
+            </span>
           </div>
           <Image
             className="rounded-lg border border-orange-400"
@@ -102,7 +120,7 @@ const CarPartCard = ({
             alt="UsedEngines"
           />
         </div>
-        <p className="pt-4 text-orange-400">
+        <p className="hidden pt-4 text-orange-400 sm:block">
           This part is available with us. Please call to get a free quote or
           fill up this form.
         </p>
@@ -121,7 +139,7 @@ const CarPartCard = ({
       </div>
       <form
         onSubmit={handleSubmit}
-        className="relative rounded-b-lg bg-white p-6 text-black shadow-md sm:w-1/2 sm:rounded-b-none sm:rounded-r-lg"
+        className="relative rounded-t-lg bg-white p-6 text-black shadow-md sm:w-1/2 sm:rounded-b-none sm:rounded-r-lg"
       >
         <h2 className="mb-2 text-xl font-semibold">
           <span className="font-light">Get Quote for :- </span>{' '}
@@ -151,7 +169,9 @@ const CarPartCard = ({
             onChange={handleChange}
             placeholder="Phone Number"
           />
-          {errors.number && <p className="text-xs pl-2 text-red-600">{errors.number}</p>}
+          {errors.number && (
+            <p className="pl-2 text-xs text-red-600">{errors.number}</p>
+          )}
         </div>
         <div className="col-span-12 mb-4 sm:col-span-12">
           <input
@@ -191,20 +211,21 @@ export default function Search({ params }) {
       (_, match) => ` ${match.toUpperCase()}`
     )
   }
-  const part = capitalizeAfterSpace(
-    decodeURIComponent(params.partdetails[0]).replace(/_/g, ' ')
-  )
+  const part =
+    capitalizeAfterSpace(
+      decodeURIComponent(params.partdetails[0] || '').replace(/_/g, ' ')
+    ) || ''
   const make = capitalizeAfterSpace(
-    decodeURIComponent(params.partdetails[1]).replace(/_/g, ' ')
+    decodeURIComponent(params.partdetails[1] || '').replace(/_/g, ' ')
   )
   const model = capitalizeAfterSpace(
-    decodeURIComponent(params.partdetails[2]).replace(/_/g, ' ')
+    decodeURIComponent(params.partdetails[2] || '').replace(/_/g, ' ')
   )
   const year = capitalizeAfterSpace(
-    decodeURIComponent(params.partdetails[3]).replace(/_/g, ' ')
+    decodeURIComponent(params.partdetails[3] || '').replace(/_/g, ' ')
   )
   const size = capitalizeAfterSpace(
-    decodeURIComponent(params.partdetails[4]).replace(/_/g, ' ')
+    decodeURIComponent(params.partdetails[4] || '').replace(/_/g, ' ')
   )
   return (
     <div>

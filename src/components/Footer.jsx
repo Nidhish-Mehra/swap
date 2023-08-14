@@ -7,59 +7,89 @@ import { socialMediaProfiles } from '@/components/SocialMedia'
 import logo from '@/images/clients/logos/logos.svg'
 import Image from 'next/image'
 
-const navigation = [
-  {
-    title: 'Links',
-    links: [
-      { title: 'Used Engines', href: '/used-engines-for-sale' },
-      { title: 'About Us', href: '/about' },
-      { title: 'FAQs', href: '/faqs' },
-      { title: 'Warranty', href: '/warranty' },
-      { title: 'Policy', href: '/policy' },
-    ],
-  },
-  {
-    title: 'Brands',
-    links: [
-      { title: 'BMW', href: '/used-engines/BMW' },
-      { title: 'Porche', href: '/used-engines/Porche' },
-      { title: 'Mercedes', href: '/used-engines/Mercedes' },
-      { title: 'Honda', href: '/used-engines/Honda' },
-      { title: 'Ford', href: '/used-engines/Ford' },
-      { title: 'Chevy', href: '/used-engines/Chevy' },
-      { title: 'Audi', href: '/used-engines/Audi' },
-    ],
-  },
-  {
-    title: 'Connect',
-    links: socialMediaProfiles,
-  },
-]
+const Links = {
+  title: 'Links',
+  links: [
+    { title: 'Used Engines', href: '/used-engines-for-sale' },
+    { title: 'About Us', href: '/about' },
+    { title: 'FAQs', href: '/faqs' },
+    { title: 'Warranty', href: '/warranty' },
+    { title: 'Policy', href: '/policy' },
+  ],
+}
+const Brands = {
+  title: 'Brands',
+  links: [
+    { title: 'BMW', href: '/used-engines/BMW' },
+    { title: 'Porche', href: '/used-engines/Porche' },
+    { title: 'Mercedes', href: '/used-engines/Mercedes' },
+    { title: 'Honda', href: '/used-engines/Honda' },
+    { title: 'Ford', href: '/used-engines/Ford' },
+    { title: 'Chevy', href: '/used-engines/Chevy' },
+    { title: 'Audi', href: '/used-engines/Audi' },
+  ],
+}
+const connect = {
+  title: 'Connect',
+  links: socialMediaProfiles,
+}
 
 function Navigation() {
   return (
     <nav>
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-        {navigation.map((section) => (
-          <li key={section.title}>
-            <div className="font-display text-sm font-semibold tracking-wider text-orange-400">
-              {section.title}
-            </div>
-            <ul role="list" className="mt-4 text-sm text-neutral-700">
-              {section.links.map((link) => (
-                <li key={link.title} className="mt-4">
-                  <a
-                    target='_blank'
-                    href={link.href}
-                    className="transition hover:text-orange-400"
-                  >
-                    {link.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
+        <li>
+          <div className="font-display text-sm font-semibold tracking-wider text-orange-950">
+            Links
+          </div>
+          <ul role="list" className="mt-4 text-sm text-orange-700">
+            {Links.links.map((link) => (
+              <li key={link.title} className="mt-4">
+                <Link
+                  href={link.href}
+                  className="transition hover:text-orange-950"
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+        <li>
+          <div className="font-display text-sm font-semibold tracking-wider text-orange-950">
+            Brands
+          </div>
+          <ul role="list" className="mt-4 text-sm text-orange-700">
+            {Brands.links.map((link) => (
+              <li key={link.title} className="mt-4">
+                <Link
+                  href={link.href}
+                  className="transition hover:text-orange-950"
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+        <li>
+          <div className="font-display text-sm font-semibold tracking-wider text-orange-950">
+            Connect
+          </div>
+          <ul role="list" className="mt-4 text-sm text-orange-700">
+            {connect.links.map((link) => (
+              <li key={link.title} className="mt-4">
+                <a
+                  target="_blank"
+                  href={link.href}
+                  className="transition hover:text-orange-950"
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
       </ul>
     </nav>
   )
