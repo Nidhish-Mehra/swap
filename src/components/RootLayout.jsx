@@ -68,8 +68,16 @@ function BreadCrumbs() {
       <Container>
         <Link href={`/`}>Home</Link>
         {allPaths.map((item, index) => (
-          <Link key={item} href={`/${allPaths.slice(0, index + 1).join('/')}`}>
-            {' '}&gt;{' '}
+          <Link
+            key={item}
+            href={
+              `/${allPaths.slice(0, index + 1).join('/')}` === '/search'
+                ? '/'
+                : `/${allPaths.slice(0, index + 1).join('/')}`
+            }
+          >
+            {' '}
+            &gt;{' '}
             {capitalizeAfterSpace(item.replace(/-/g, ' ').replace(/_/g, ' '))}
           </Link>
         ))}
