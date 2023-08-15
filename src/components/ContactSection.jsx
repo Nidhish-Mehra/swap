@@ -9,11 +9,11 @@ import { List, ListItem } from './List'
 
 export function ContactSection() {
   return (
-    <Container className="mt-24 md:mt-32 lg:mt-40">
-      <FadeIn className="-mx-6 rounded-4xl bg-orange-400 px-6 py-20 md:mx-0 md:py-16 md:px-12">
+    <Container className="mt-24 sm:mt-32 lg:mt-40">
+      <FadeIn className="-mx-6 rounded-4xl bg-orange-400 px-6 py-20 sm:mx-0 sm:py-16 md:px-12">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="max-w-xl">
-            <h2 className="font-display text-3xl mb-8 font-medium text-white [text-wrap:balance] md:text-4xl">
+            <h2 className="font-display text-3xl mb-8 font-medium text-white [text-wrap:balance] sm:text-4xl">
               Why Swap Engines?
             </h2>
             <ul role="list" className={clsx('text-base text-neutral-100')}>
@@ -51,7 +51,7 @@ export function ContactSection() {
               </li>
             </ul>
           </div>
-          <Image className="hidden md:block" src={satisfaction} alt="100% Satisfaction" unoptimized />
+          <Image className="hidden sm:block" src={satisfaction} alt="100% Satisfaction" unoptimized />
         </div>
       </FadeIn>
     </Container>

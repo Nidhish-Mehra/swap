@@ -14,7 +14,7 @@ export const MDXComponents = {
     return (
       <div
         className={clsx(
-          'group isolate my-10 overflow-hidden rounded-4xl bg-neutral-100 max-md:-mx-6',
+          'group isolate my-10 overflow-hidden rounded-4xl bg-neutral-100 max-sm:-mx-6',
           className
         )}
       >
@@ -36,11 +36,11 @@ export const MDXComponents = {
     return (
       <div
         className={clsx(
-          'my-10 max-md:-mx-6 max-md:flex max-md:overflow-x-auto',
+          'my-10 max-sm:-mx-6 max-sm:flex max-sm:overflow-x-auto',
           className
         )}
       >
-        <div className="max-md:min-w-full max-md:flex-none max-md:px-6">
+        <div className="max-sm:min-w-full max-sm:flex-none max-sm:px-6">
           <table {...props} />
         </div>
       </div>

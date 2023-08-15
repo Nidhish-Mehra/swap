@@ -7,7 +7,7 @@ import { StatList, StatListItem } from '@/components/StatList'
 import FormComponent from '@/components/Form'
 import { FadeIn } from '@/components/FadeIn'
 import { useState } from 'react'
-import { PhoneIcon } from '@heroicons/react/24/outline'
+import { ExclamationTriangleIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import usedEngines from '@/images/clients/logos/used_engine.webp'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -74,10 +74,13 @@ const CarPartCard = ({
   return (
     <div className="mt-8 flex w-full flex-col-reverse sm:mt-0 sm:flex-row">
       <div className="rounded-b-lg bg-white bg-opacity-10 p-6 text-white shadow-md backdrop-blur-md backdrop-filter sm:w-1/2 sm:rounded-l-lg sm:rounded-t-none">
-        <p className="pt-4 text-orange-400 sm:hidden">
-          This part is available with us. Please call to get a free quote or
-          fill up this form.
-        </p>
+        <div className="flex flex-col items-center pt-4 sm:hidden">
+          <ExclamationTriangleIcon className="w-8 animate-bounce text-orange-400" />
+          <p className=" text-orange-400">
+            This part is available with us. Please call to get a free quote or
+            fill up this form.
+          </p>
+        </div>
         <div className="mt-4 flex items-end justify-between sm:hidden">
           <a
             href="tel:+1234567890"
@@ -120,10 +123,13 @@ const CarPartCard = ({
             alt="UsedEngines"
           />
         </div>
-        <p className="hidden pt-4 text-orange-400 sm:block">
-          This part is available with us. Please call to get a free quote or
-          fill up this form.
-        </p>
+        <div className='sm:flex items-center hidden'>
+          <ExclamationTriangleIcon className="w-12 pr-2 animate-bounce text-orange-400" />
+          <p className="pt-4 text-orange-400">
+            This part is available with us. Please call to get a free quote or
+            fill up this form.
+          </p>
+        </div>
         <div className="mt-4 flex items-end justify-between">
           <a
             href="tel:+1234567890"

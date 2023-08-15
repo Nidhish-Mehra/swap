@@ -17,13 +17,20 @@ module.exports = {
       '6xl': ['3rem', { lineHeight: '3.5rem' }],
       '7xl': ['4rem', { lineHeight: '4.5rem' }],
     },
+    screens: {
+      sm: '900px',
+      md: '1000px',
+      lg: '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       borderRadius: {
         '4xl': '2.5rem',
       },
-      screens: {
-        'tab': '900px'
-      },
+      // screens: {
+      //   'tab': '900px'
+      // },
       fontFamily: {
         sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
         display: [
