@@ -21,6 +21,9 @@ module.exports = {
       borderRadius: {
         '4xl': '2.5rem',
       },
+      screens: {
+        'tab': '900px'
+      },
       fontFamily: {
         sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
         display: [

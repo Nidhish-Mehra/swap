@@ -108,7 +108,7 @@ function Header({
           >
             <Image className="h-20 w-auto" src={logo} alt="logo" unoptimized />
           </Link>
-          <div className="hidden items-center sm:flex">
+          <div className="hidden items-center md:flex">
             <ClockIcon className="h-8 text-orange-400" />
             <div className="ml-2 text-sm font-semibold text-orange-400">
               <p className="text-black">
@@ -122,13 +122,13 @@ function Header({
             {/* <CallToActionLink href="mailto:info@swapengines.com" className="hidden md:block" invert={invert}>
             info@swapengines.com
           </CallToActionLink> */}
-            <a href="tel:+18662417434" className="hidden items-center sm:flex">
+            <a href="tel:+18662417434" className="hidden items-center md:flex">
               <div className="rounded-full border border-orange-400 p-4">
                 <PhoneIcon className="animate-phone-ring h-6 text-orange-400" />
               </div>
               <div className="ml-2">
                 <p className="text-sm">Speak with our specialist now</p>
-                <p className="text-xl font-semibold text-orange-400">
+                <p className="text-lg font-semibold text-orange-400">
                   +1-866-241-7434
                 </p>
               </div>
@@ -140,7 +140,7 @@ function Header({
               aria-expanded={expanded.toString()}
               aria-controls={panelId}
               className={clsx(
-                'group -m-2.5 block rounded-full p-2.5 transition sm:hidden',
+                'group -m-2.5 block rounded-full p-2.5 transition md:hidden',
                 invert ? 'hover:bg-white/10' : 'hover:bg-orange-400/10'
               )}
               aria-label="Toggle navigation"
@@ -160,15 +160,15 @@ function Header({
           className={
             invert
               ? 'hidden'
-              : 'item-center flex justify-between border-t border-t-orange-400 py-1 sm:hidden'
+              : 'item-center flex justify-between border-t border-t-orange-400 py-1 md:hidden'
           }
         >
           <a href="tel:+18662417434" className="flex items-center">
-            <div className="rounded-full border border-orange-400 p-4">
-              <PhoneIcon className="animate-phone-ring h-5 text-orange-400" />
+            <div className="rounded-full border border-orange-400 p-1 md:p-4">
+              <PhoneIcon className="animate-phone-ring h-3 md:h-5 text-orange-400" />
             </div>
             <div className="ml-2">
-              <p className="text-lg font-semibold text-orange-400">
+              <p className="text-sm font-semibold text-orange-400">
                 +1-866-241-7434
               </p>
             </div>
@@ -179,7 +179,7 @@ function Header({
             SAT 11AM - 4PM EST
           </div>
         </div>
-        <nav className="hidden items-center justify-between border-t border-t-orange-400 text-orange-400 sm:flex ">
+        <nav className="hidden items-center justify-between border-t border-t-orange-400 text-orange-400 md:flex ">
           <Link
             href="/used-engines-for-sale"
             className={
@@ -229,16 +229,16 @@ function Header({
           </Link>
         </nav>
       </Container>
-      <BreadCrumbs />
+      {!invert && <BreadCrumbs />}
     </>
   )
 }
 
 function NavigationRow({ children }) {
   return (
-    <div className="border-t border-t-neutral-100 sm:bg-orange-400">
+    <div className="border-t border-t-neutral-100 md:bg-orange-400">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2">{children}</div>
       </Container>
     </div>
   )
@@ -248,7 +248,7 @@ function NavigationItem({ href, children }) {
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 border-y-[0.5px] border-neutral-100 bg-orange-400 px-6 py-2 sm:mx-0 sm:border-neutral-100 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:border-l sm:even:pl-16 md:border-y-0"
+      className="group relative isolate -mx-6 border-y-[0.5px] border-neutral-100 bg-orange-400 px-6 py-2 md:mx-0 md:border-neutral-100 md:px-0 md:py-16 md:odd:pr-16 md:even:border-l md:even:pl-16 md:border-y-0"
     >
       {children}
       <span className="absolute inset-y-0 -z-10 w-screen bg-orange-500 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
@@ -258,8 +258,8 @@ function NavigationItem({ href, children }) {
 
 function BrandRow({ children }) {
   return (
-    <div className="sm:bg-orange-400 ">
-      <div className="hidden grid-cols-1 sm:grid-cols-7 md:grid">
+    <div className="md:bg-orange-400 ">
+      <div className="hidden grid-cols-1 md:grid-cols-7 md:grid">
         {children}
       </div>
     </div>
@@ -399,17 +399,17 @@ function RootLayoutInner({ children }) {
             <Navigation />
             <div className="relative bg-orange-400 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-100">
               <Container>
-                <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
+                <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 md:grid-cols-2 md:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
                       Our office
                     </h2>
                     <Offices
                       invert
-                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                      className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2"
                     />
                   </div>
-                  <div className="sm:border-l sm:border-transparent sm:pl-16">
+                  <div className="md:border-l md:border-transparent md:pl-16">
                     <h2 className="font-display text-base font-semibold text-white">
                       Follow us
                     </h2>
@@ -440,9 +440,9 @@ function RootLayoutInner({ children }) {
             src={banner}
             unoptimized
             alt="bg"
-            className="absolute inset-x-0 -top-14 -z-10 hidden h-[800px] w-full fill-neutral-50 stroke-orange-400/5 sm:block"
+            className="absolute inset-x-0 -top-14 -z-10 hidden h-[800px] w-full fill-neutral-50 stroke-orange-400/5 md:block"
           />
-          <div className="absolute inset-x-0 -top-14 -z-10 hidden h-[800px] w-full bg-white fill-neutral-50 stroke-orange-400/5 opacity-70 sm:block" />
+          <div className="absolute inset-x-0 -top-14 -z-10 hidden h-[800px] w-full bg-white fill-neutral-50 stroke-orange-400/5 opacity-70 md:block" />
 
           <main className="w-full flex-auto">{children}</main>
 

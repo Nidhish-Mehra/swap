@@ -9,7 +9,7 @@ export function Testimonial({ children, client, className }) {
   return (
     <div
       className={clsx(
-        'relative isolate bg-neutral-50 py-16 sm:py-28 md:py-32',
+        'relative isolate bg-neutral-50 py-16 md:py-28 md:py-32',
         className
       )}
     >
@@ -20,8 +20,8 @@ export function Testimonial({ children, client, className }) {
       <Container>
         <FadeIn>
           <figure className="mx-auto max-w-4xl">
-            <blockquote className="relative font-display text-xl font-medium tracking-tight text-orange-400 sm:text-xl">
-              <p className="before:content-['“'] after:content-['”'] sm:before:absolute sm:before:right-full">
+            <blockquote className="relative font-display text-xl font-medium tracking-tight text-orange-400 md:text-xl">
+              <p className="before:content-['“'] after:content-['”'] md:before:absolute md:before:right-full">
                 {children}
               </p>
             </blockquote>

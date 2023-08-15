@@ -22,7 +22,7 @@ export default function FaqPage() {
   return (
     <>
       <Container formContainer={true} className="mt-12 sm:mt-40">
-        <FadeIn className="flex items-center justify-between pt-12 md:pt-0">
+        <FadeIn className="flex items-center justify-between pt-16 md:pt-0">
           <FormComponent />
           <h1 className="hidden pl-16 font-display text-5xl font-medium tracking-tight text-orange-400 [text-wrap:balance] sm:text-7xl md:block">
             Have some questions for us?

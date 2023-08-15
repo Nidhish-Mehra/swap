@@ -230,7 +230,7 @@ export default function Search({ params }) {
   return (
     <div>
       <Container className="mt-12 sm:mt-40">
-        <FadeIn className="items-center justify-between pt-12 sm:flex md:pt-0">
+        <FadeIn className="items-center justify-between pt-16 sm:flex md:pt-0">
           <CarPartCard
             part={part}
             make={make}

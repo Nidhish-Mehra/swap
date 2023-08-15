@@ -327,7 +327,7 @@ export default async function Home() {
   return (
     <>
       <Container formContainer={true} className="mt-12 sm:mt-40">
-        <FadeIn className="flex-column items-center justify-between pt-12 sm:flex md:pt-0">
+        <FadeIn className="flex-column items-center justify-between pt-16 sm:flex md:pt-0">
           <FormComponent />
           <div className="px-2 sm:px-0 sm:pl-16">
             <h1 className="hidden font-display text-2xl font-semibold tracking-tight text-orange-400 [text-wrap:balance] sm:text-3xl sm:text-orange-950 md:block">

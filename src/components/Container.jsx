@@ -9,7 +9,7 @@ export function Container({
   return (
     <Component
       className={clsx(
-        `mx-auto max-w-7xl ${formContainer ? 'sm:px-6' : 'px-6'} lg:px-8`,
+        `mx-auto max-w-7xl ${formContainer ? 'md:px-6' : 'px-6'} lg:px-8`,
         className
       )}
     >

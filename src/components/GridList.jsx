@@ -9,7 +9,7 @@ export function GridList({ className, children }) {
       <ul
         role="list"
         className={clsx(
-          'grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-2',
+          'grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2',
           className
         )}
       >
