@@ -18,7 +18,7 @@ module.exports = {
       '7xl': ['4rem', { lineHeight: '4.5rem' }],
     },
     screens: {
-      sm: '900px',
+      sm: '901px',
       md: '1000px',
       lg: '1024px',
       'xl': '1280px',

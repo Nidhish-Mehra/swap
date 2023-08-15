@@ -130,7 +130,7 @@ function Header({
             info@swapengines.com
           </CallToActionLink> */}
             <a href="tel:+18662417434" className="hidden items-center sm:flex">
-              <div className="rounded-full border border-orange-400 p-4">
+              <div className="rounded-full border border-orange-400 p-2">
                 <PhoneIcon className="animate-phone-ring h-6 text-orange-400" />
               </div>
               <div className="ml-2">

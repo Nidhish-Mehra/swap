@@ -96,7 +96,7 @@ function Clients() {
         <FadeInStagger faster>
           <ul
             role="list"
-            className="mt-10 grid grid-cols-4 content-center gap-x-8 gap-y-10 lg:grid-cols-7"
+            className="mt-10 grid grid-cols-1 content-center gap-x-8 gap-y-10 lg:grid-cols-7"
           >
             {clients.map(([client, logo]) => (
               <li key={client}>
