@@ -113,8 +113,8 @@ function Clients() {
                         alt={client}
                         unoptimized
                       />
-                      <p className="text-center font-display pl-0.5 text-sm font-semibold tracking-wider text-white">
-                        {client}&nbsp;&gt;&gt;
+                      <p className="pl-0.5 text-center font-display text-sm font-semibold tracking-wider text-white">
+                        {client.replace(/ /g, '')}&nbsp;&gt;&gt;
                       </p>
                     </div>
                   </Link>
