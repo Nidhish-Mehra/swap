@@ -64,7 +64,7 @@ function BreadCrumbs() {
   }
 
   return (
-    <div className="w-full bg-slate-400 text-sm font-semibold text-white">
+    <div className="w-full bg-slate-400 hidden sm:block text-sm font-semibold text-white">
       <Container>
         <Link href={`/`}>Home</Link>
         {allPaths.map((item, index) => (
@@ -180,10 +180,13 @@ function Header({
               </p>
             </div>
           </a>
-          <div className="my-auto text-xs">
+          <div className="my-auto text-xs hidden sm:block">
             M-F 9AM - 8PM EST
             <br />
             SAT 11AM - 4PM EST
+          </div>
+          <div className="my-auto text-xs block sm:hidden font-semibold text-orange-400">
+            Call for FREE QUOTE
           </div>
         </div>
         <nav className="hidden items-center justify-between border-t border-t-orange-400 text-orange-400 sm:flex ">

@@ -13,7 +13,7 @@ export function Container({
         className
       )}
     >
-      <div className="mx-auto max-w-2xl lg:max-w-none">{children}</div>
+      <div className="mx-auto max-w-7xl lg:max-w-none">{children}</div>
     </Component>
   )
 }

@@ -84,10 +84,10 @@ const clients = [
 
 function Clients() {
   return (
-    <div className="mt-20 rounded-4xl bg-orange-400 py-20 sm:py-32">
+    <div className="mt-20 rounded-4xl bg-white-400 py-20 sm:py-32">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
-          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
+          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-orange-400 sm:text-left">
             Find Used Engines for Sale by{' '}
             <span className="text-xl">Popular Brands</span>
           </h2>
@@ -107,13 +107,13 @@ function Clients() {
                       .replace(/ /g, '_')}`}
                   >
                     <div className="flex items-center">
-                      <Image
+                      {/* <Image
                         className="h-6 w-auto"
                         src={logo}
                         alt={client}
                         unoptimized
-                      />
-                      <p className="pl-0.5 text-center font-display text-sm font-semibold tracking-wider text-white">
+                      /> */}
+                      <p className="pl-0.5 text-center font-display text-sm font-semibold tracking-wider text-black">
                         {client.replace(/ /g, '')}&nbsp;&gt;&gt;
                       </p>
                     </div>
